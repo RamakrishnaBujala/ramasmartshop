@@ -1,0 +1,43 @@
+<div class="alert alert-error" ng-show="error"><font color="red">{{errorMessage}}</font></div>
+<div>
+	<input type="text" id="inputDesc" ng-model="txnId"
+		placeholder="OrderID">
+
+</div>
+<div>
+	<button type="button" ng-disabled="!txnId"
+		ng-click="getOrderDetails(txnId)">GetOrder</button>
+</div>
+<div ng-show="orderInfo.orderTxnId!=null">
+	<div align="center">
+		<form>
+			<table width="600">
+				<tr>
+					<td>TransactionID:</td>
+					<td>{{orderInfo.orderTxnId}}</td>
+
+				</tr>
+				<tr>
+					<td>ShippingAddress:</td>
+					<td>{{orderInfo.shippingAddress}}</td>
+				</tr>
+				<tr>
+
+					<td>ShippingCity:</td>
+					<td>{{orderInfo.shippingCity}}</td>
+				</tr>
+				<tr>
+
+					<td>Order Status:</td>
+					<td>{{orderInfo.orderStatus}}</td>
+				</tr>
+			</table>
+		</form>
+
+		<div >
+			<p >
+				P: Placed,  D: Delivered, C: Cancelled
+			</p>
+		</div>
+	</div>
+</div>

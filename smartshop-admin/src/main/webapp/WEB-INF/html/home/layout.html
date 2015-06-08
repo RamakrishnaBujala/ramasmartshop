@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>!! SMARTSHOP, the Pet store. Admin Tool !!</title>
+<meta name="description" content="website description" />
+<meta name="keywords" content="website keywords, website keywords" />
+<meta http-equiv="content-type"
+	content="text/html; charset=windows-1252" />
+<link rel="stylesheet" type="text/css" href="style/style.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+	type="text/javascript"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"
+	type="text/javascript"></script>
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/controllers/SalesInfoController.js"></script>
+<script src="js/controllers/ProductController.js"></script>
+<script src="js/controllers/CategoryController.js"></script>
+<script src="js/controllers/HomeController.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/directives.js"></script>
+<script>
+  function searchProduct1(searchProduct){
+	alert("hi");
+  }
+  </script>
+</head>
+
+<body data-ng-app="SmartShopApp" ng-controller="HomeController">
+	<div id="main">
+		<div id="header">
+			<center>
+				<div id="banner"></div>
+			</center>
+
+
+		</div>
+		<div id="content_header"></div>
+		<div id="site_content">
+
+			<div id="sidebar_container">
+				<div class="sidebar">
+					<div class="sidebar_top"></div>
+					<div class="sidebar_item">
+						<h3>Search</h3>
+
+						<p>
+						<div>
+							<input type="text" id="inputSearch" ng-model="searchProduct"
+								placeholder="Product search" class="search"/>
+								
+								<img src="style/search.png" clas="search" alt="Search" title="Search"
+								ng-click="searchProduct1()"/>
+						</div>
+						</p>
+
+					</div>
+					<div class="sidebar_base"></div>
+				</div>
+				<div class="sidebar">
+					<div class="sidebar_top"></div>
+					<div class="sidebar_item">
+						<!-- insert your sidebar items here -->
+						<h3>Latest News</h3>
+						<h4>New Website Launched</h4>
+						<h5>February 1st, 2014</h5>
+						<p>
+							2014 sees the redesign of our website. Take a look around and let
+							us know what you think.<br /> <a href="#">Read more</a>
+						</p>
+					</div>
+					<div class="sidebar_base"></div>
+				</div>
+			</div>
+			<div id="content">
+				<div ng-view></div>
+			</div>
+		</div>
+		<div id="content_footer"></div>
+		<div id="footer">
+			<p>Copyright &copy; Capgemini.com | All rights reserved</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+INSERT INTO SMARTSHOP."USER" values(1,'admin@gmail.com', 'admin', 'test', 'test', 'admin', 'Whitefield', 'Bangalore', 'KA', '560048', 'A');

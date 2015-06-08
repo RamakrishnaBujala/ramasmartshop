@@ -1,0 +1,95 @@
+<div class="alert alert-error" ng-show="error"><font color="red">{{errorMessage}}</font></div>
+<div id="login" ng-show="!isRegistrationRequired">	
+	<div class="form_settings">
+		<label class="control-label" for="inputCategory">Email:</label>
+		<div>
+			<input type="email" ng-model="user.userEmail" required
+				placeholder="Enter Email Id">
+		</div>
+	</div>
+
+	<div class="form_settings">
+		<label class="control-label" for="inputCategory">Password:</label>
+		<div>
+			<input type="password" ng-model="user.userPassword" required
+				placeholder="Enter Password"></input>
+		</div>
+		<div class="form_settings">
+			<button ng-click="checkUserLogin(user)">login..</button>
+			<button ng-click="showRegistration()">Register</button>
+		</div>
+	</div>
+</div>
+<div id="reegister" ng-show="isRegistrationRequired">
+
+	<div class="form_settings">
+		<label class="control-label" for="inputCategory">First Name</label>
+		<div>
+			<input type="text" ng-model="user.userFirstName" required
+				placeholder="Enter First Name" />
+		</div>
+	</div>
+	<div class="form_settings">
+		<label class="control-label" for="inputCategory">Last Name</label>
+			<div>
+				<input type="text" ng-model="user.userLastName" required
+					placeholder="Enter Last Name" />
+			</div>
+	</div>
+
+
+	<div class="form_settings">
+		<label class="control-label" for="inputCategory">Address</label>
+		<div>
+			<input type="text" ng-model="user.userAddress" required
+				placeholder="Enter Address" />
+		</div>
+	</div>
+
+	<div class="form_settings">
+		<label class="control-label" for="inputCategory">City</label>
+		<div>
+			<input type="text" ng-model="user.userCity" required
+				placeholder="Enter City" />
+		</div>
+	</div>
+	<div class="form_settings">
+		<label class="control-label" for="inputCategory">State</label>
+		<div>
+			<input type="text" ng-model="user.userState" required
+				placeholder="Enter State" />
+		</div>
+	</div>
+	<div class="form_settings">
+		<label class="control-label" for="inputCategory">Pin</label>
+		<div>
+			<input type="text" ng-model="user.userPincode" required
+				placeholder="Enter Pin" />
+		</div>
+	</div>
+	<div class="form_settings">
+		<label class="control-label" for="inputCategory">UserName:</label>
+		<div>
+			<input type="text" required ng-model="user.userName"
+				placeholder="Enter password">
+		</div>
+	</div>
+	<div class="form_settings">
+		<label class="control-label" for="inputCategory">Email</label>
+		<div>
+			<input type="email" name="email" ng-model="user.userEmail" required
+				placeholder="Enter a valid email address" />
+		</div>
+	</div>
+	
+	<div class="form_settings">
+		<label class="control-label" for="inputCategory">Choose Password: </label>
+		<div>
+			<input type="password" required ng-model="user.userPassword"
+				placeholder="Enter password">
+		</div>
+	</div>
+	<div class="form_settings">
+		<button ng-click="checkUserEmailBeforeRegister(user)">Register...</button>
+	</div>
+</div>

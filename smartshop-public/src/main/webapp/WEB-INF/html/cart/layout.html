@@ -1,0 +1,47 @@
+<div align="center">
+	<form>
+		<b> :: Your Cart Details :: </b> <br>
+		
+		<br>
+		<div class="alert alert-info" ng-show="getTotalCount() == 0"> Your cart is empty, <a href="#products">Go back to store</a></div>
+				
+		<table ng-show="items.length > 0" width="600">
+			<tr>
+				<th>Product Name</th>
+				<th>Quantity</th>
+				<th>Product Price</th>			
+			</tr>
+			
+			<tr data-ng-repeat="item in items | orderBy:'name'">
+				<td>{{item.name}}</td>
+				
+				<td><input type="text" data-ng-model="item.quantity"
+					data-ng-change="saveItems()" size="2" min="0" /></td>
+				<td>{{item.price * item.quantity | currency}}</td>
+							
+			</tr>
+			<tr>
+				<td><b>Total</b></td>
+				<td><b>{{getTotalCount()}}</b></td>
+				<td><b>{{getTotalPrice() | currency}}</b></td>
+				
+			</tr>
+		</table>
+		<br>
+		<button onclick="window.location.href='#order'" data-ng-disabled="getTotalCount() < 1" >Check
+			Out</button>
+		<!-- 		<button data-ng-click="placeOrder(cart.items)">Check Out</button> -->
+
+
+		<div class="container">
+			<p class="text-info">
+				<button onclick="window.location.href='#products'">Back to
+					Store</button>
+				<button data-ng-click="clearItems()"
+					data-ng-disabled="getTotalCount() < 1">Clear Your Cart</button>
+			</p>
+		</div>
+	</form>
+
+
+</div>

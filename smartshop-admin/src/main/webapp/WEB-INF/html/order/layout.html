@@ -1,0 +1,41 @@
+<div ng-show=userLoggedin>
+	<br />
+	<center>
+		<h3 style="margin-left: 100px;">Orders List</h3>
+	</center>
+	<br />
+	<div class="alert alert-info" ng-show="orders.length == 0">No
+		Orders found</div>
+	<table class="table table-bordered table-striped"
+		ng-show="orders.length > 0" width="685">
+		<thead>
+			<tr>
+
+				<th style="text-align: center;">OrderId</th>
+				<th style="text-align: center;">Order Date</th>
+				<th style="text-align: center;">OrderStatus</th>
+				<th style="text-align: center;">Action</th>
+				<th style="text-align: center;">ChangetStatus</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="order in orders">
+				<td style="text-align: center;">{{order.orderTxnId}}</td>
+				<td>{{order.orderBookingDate}}</td>
+				<td>{{order.orderStatus}}</td>
+				<td><select ng-model="order.orderStatus" value="--choose--">
+						<option value="P" selected="selected">Placed</option>
+						<option value="D">Delivered</option>
+						<option value="C">Cancelled</option>
+				</select></td>
+				<td><button ng-click="updateOrder(order)" ng-disabled="!order.orderStatus">ChangeStatus</button>
+					</td>
+
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div ng-show="!userLoggedin">
+	<p>
+		Please <a href="#/user"><u>login</u></a> with Admin credentials
+</div>

@@ -1,0 +1,87 @@
+<div ng-show=userLoggedin>
+	<form>
+		<div class="form_settings" ng-hide="showCategory">
+			Select Category <select ng-model="product.category.categoryId"
+				ng-options="category.categoryId as category.categoryName for category in categories">
+				<option value="">- - Select Category - -</option>
+			</select>
+		</div>
+
+		<div class="form_settings">
+			<label class="control-label" for="inputCategory">Product Name</label>
+			<div>
+				<input type="text" id="inputCategory" ng-model="product.productName"
+					placeholder="Product Name">
+			</div>
+		</div>
+		<div class="form_settings">
+			<label class="control-label" for="inputDesc">Product
+				Description</label>
+
+			<div>
+				<input type="text" id="inputDesc" ng-model="product.prodcutDesc"
+					placeholder="Description">
+
+			</div>
+		</div>
+		<div class="form_settings">
+			<label class="control-label" for="inputDesc">Product Price</label>
+
+			<div>
+				<input type="number" id="inputDesc" ng-model="product.productPrice"
+					placeholder="Price,EX: 10.00">
+
+			</div>
+
+			<div>
+				<button type="button"
+					ng-disabled="!product.productName || !product.productPrice || !product.category.categoryId "
+					ng-hide="editMode" ng-click="addNewProduct(product)">Add
+					Product</button>
+				<button type="button"
+					ng-disabled="!product.productName || !product.productPrice"
+					ng-show="editMode" ng-click="updateProduct(product)">Save
+					Product</button>
+				<button type="button" ng-click="resetProductForm()">Reset</button>
+			</div>
+		</div>
+	</form>
+
+	<br />
+	<center>
+		<h3 style="margin-left: 100px;">Products List</h3>
+	</center>
+	<br />
+	<div class="alert alert-info" ng-show="products.length == 0">No
+		Products found</div>
+	<table class="table table-bordered table-striped"
+		ng-show="products.length > 0" width="685">
+		<thead>
+			<tr>
+
+				<th style="text-align: center;">Product Id</th>
+				<th style="text-align: center;">Product Name</th>
+				<th style="text-align: center;">Product Desc</th>
+				<th style="text-align: center;">Product Price</th>
+				<th style="text-align: center;">CategoryID</th>
+				<th style="text-align: center;">Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in products | filter: product.category.categoryId.categoryName" >
+				<td style="text-align: center;">{{item.prodcutId}}</td>
+				<td>{{item.productName}}</td>
+				<td>{{item.prodcutDesc}}</td>
+				<td>{{item.productPrice}}</td>
+				<td>{{item.category.categoryId}}</td>
+				<td><button ng-click="editProductForm(item)">Edit</button>
+					<button ng-click="removeProduct(item.prodcutId)">Remove</button></td>
+
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div ng-show="!userLoggedin">
+	<p>
+		Please <a href="#/user"><u>login</u></a> with Admin credentials
+</div>

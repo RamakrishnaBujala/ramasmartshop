@@ -1,0 +1,30 @@
+<div class="alert alert-error" ng-show="error"><font color="red">{{errorMessage}}</font></div>
+<form>	
+		<div class="form_settings">
+			<label class="control-label" for="inputCategory">User Name</label>
+			<div>
+				<input type="text" id="inputCategory" ng-model="user.userName"
+					placeholder="User Name">
+			</div>
+		</div>
+		<div class="form_settings">
+			<label class="control-label" for="inputDesc">Password</label>
+
+			<div>
+				<input type="password" id="inputDesc" ng-model="user.userPassword"
+					placeholder="Password">
+
+			</div>
+		</div>
+		<div class="form_settings">
+			
+
+			<div>
+				<button type="button"
+					ng-disabled="!user.userName || !user.userPassword "
+					ng-click="checkAdminLogin(user)">login</button>
+				<button type="button" ng-click="resetUserForm()">Reset</button>
+			</div>
+		</div>
+		
+	</form>

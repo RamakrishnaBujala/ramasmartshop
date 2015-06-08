@@ -1,0 +1,51 @@
+<div align="center">
+	<div class="form_settings">
+		Search by Product <input type="text" data-ng-model="searchProduct"
+			width="50px"> <br /> Search by Category <select
+			data-ng-model="searchCategory"
+			data-ng-options="searchCategory.categoryName for searchCategory in categories"><option
+				value="">All</option></select> <br>
+	</div>
+	<br>
+
+
+	<h3 style="margin-left: 100px;">Pet Store Products</h3>
+
+	<div class="alert alert-info" ng-show="products.length == 0">No
+		Products found</div>
+
+	<div class="form_settings" ng-show="products.length > 0">
+
+		<caption align="right">
+			<br> <a href="#cart"> <i class="icon-shopping-cart"></i><b>Toal
+					items: {{getTotalCount()}}, Total Amount: {{getTotalPrice() |
+					currency}}</a>
+		</caption>
+	</div>
+	<table class="form_settings"
+		ng-show="products.length > 0" width="600">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Product Name</th>
+				<th>Product Desc</th>
+				<th>Product Price</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr
+				ng-repeat="item in products | filter:searchCategory.categoryName | filter:searchProduct">
+				<td>{{item.prodcutId}}</td>
+				<td>{{item.productName}}</td>
+				<td>{{item.prodcutDesc}}</td>
+				<td>{{item.productPrice}}</td>
+				<td class="tdCenter"><a href=""
+					ng-click="addItem(item.prodcutId, item.productName, item.productPrice, 1)">
+						add to cart </a></td>
+
+			</tr>
+		</tbody>
+	</table>
+	</form>
+</div>

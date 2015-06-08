@@ -1,0 +1,85 @@
+<div align="center" ng-show="items.length > 0">
+	<form>
+		<b> Your Order Details</b> <br>
+		<br>
+		<table width="600" ng-show="items.length > 0">
+			<th>Product Name</th>
+			<th>Quantity</th>
+			<th>Product Price</th>
+			<tr data-ng-repeat="item in items | orderBy:'name'">
+				<td>{{item.name}}</td>
+				<td>{{item.quantity}}</td>
+				<td>{{item.price * item.quantity | currency}}</td>
+			</tr>
+			<tr>
+				<td><b>Total</b></td>
+				<td><b>{{getTotalCount()}}</b></td>
+				<td><b>{{getTotalPrice() | currency}}</b></td>
+			</tr>
+		</table>
+		<br>
+		<button ng-click="loadShippingDetails()">Place Order</button>
+		<button onclick="window.location.href='#cart'">Back to
+			Shopping Cart</button>
+	</form>
+</div>
+<div id="billingDetails" ng-show="showBillingDetails">
+	</h>
+	<br> <label>Please provide the shipping Address: </label>
+
+	<!-- setting the userid here to order of userid -->
+	<input type="hidden" id="inputDesc" ng-model="order.userId"
+		value="{{userDetails.userId}}" />
+
+	<div class="form_settings">
+		<label class="control-label" for="inputDesc">Shipping Address
+		</label>
+
+		<div>
+			<textarea type="text" id="inputDesc"
+				ng-model="order.orderShippingAddress">
+			</textarea>
+
+
+		</div>
+	</div>
+	<div class="form_settings">
+		<label class="control-label" for="inputDesc">Shipping City</label>
+
+		<div>
+			<input type="text" id="inputDesc" ng-model="order.orderShippingCity" />
+
+		</div>
+	</div>
+	<div class="form_settings">
+		<label class="control-label" for="inputDesc">Shipping Pin</label>
+
+		<div>
+			<input type="text" id="inputDesc" ng-model="order.orderShippingPin" />
+		</div>
+		<div>
+			<button type="button"
+				ng-disabled="!order.orderShippingAddress || !order.orderShippingCity || !order.orderShippingPin "
+				ng-click="confirmOrder(order)">Confirm Order</button>
+		</div>
+	</div>
+</div>
+
+<div align="center" id="orderInfo" ng-show="orderInfoToUser">
+	<br>
+	<form>
+		<p>Thank You for shopping with us!! Order ID:
+			{{orderTxnId}}, this will be further track.</p>
+		</h>
+
+	</form>
+
+	<div class="container">
+		<p class="text-info">
+			<button onclick="window.location.href='#products'">
+				<i class="icon-chevron-left"></i> back to Shopping Cart
+			</button>
+		</p>
+	</div>
+</div>
+
